@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  dnote:
+    image: dnote/dnote:latest
+    environment:
+      GO_ENV: PRODUCTION
+      DBSkipSSL: "true"
+      DBHost: 192.168.1.116
+      DBPort: 5432
+      DBName: dnote
+      DBUser: dnote
+      DBPassword: $DBPassword
+      WebURL: localhost:3000
+      OnPremise: "true"
+      SmtpHost:
+      SmtpPort:
+      SmtpUsername:
+      SmtpPassword:
+      DisableRegistration: "false"
+    ports:
+      - 3000:3000
+    restart: always
